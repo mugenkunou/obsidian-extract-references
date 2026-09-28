@@ -82,3 +82,16 @@ enable it in **settings → community plugins → extract references**.
 ## development
 
 source file is `main.ts`. edit it, then `npm run build` to recompile. the source files (`main.ts`, `package.json`, `tsconfig.json`, `esbuild.config.mjs`) can be deleted from the plugin directory after building if you want to keep it minimal — only `main.js` and `manifest.json` are needed at runtime.
+
+### secret scanning
+
+this repo is scanned for secrets with [gitleaks](https://github.com/gitleaks/gitleaks):
+
+- **CI**: `.github/workflows/gitleaks.yml` scans every push to `main` and every pull request.
+- **local pre-commit hook**: `.githooks/pre-commit` blocks commits containing likely secrets. enable it once per clone with:
+
+  ```bash
+  git config core.hooksPath .githooks
+  ```
+
+  requires `gitleaks` installed locally (`brew install gitleaks` or see the [install docs](https://github.com/gitleaks/gitleaks#installing)). bypass a false positive with `git commit --no-verify`.
