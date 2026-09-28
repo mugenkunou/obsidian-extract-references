@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# test build artifact
+extract.js
+
+# editor / OS
+.DS_Store
+*.swp
+*.swo

@@ -1,0 +1,21 @@
+{
+	"name": "extract-references",
+	"version": "1.0.0",
+	"description": "Extract inline external links to ## reference section",
+	"main": "main.js",
+	"license": "MIT",
+	"author": "siva",
+	"scripts": {
+		"build": "node esbuild.config.mjs",
+		"build:test": "node esbuild.test.mjs",
+		"test": "node esbuild.test.mjs && node test.js"
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"builtin-modules": "3.3.0",
+		"esbuild": "^0.28.0",
+		"obsidian": "latest",
+		"tslib": "2.4.0",
+		"typescript": "4.7.4"
+	}
+}

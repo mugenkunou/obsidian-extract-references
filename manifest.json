@@ -1,0 +1,9 @@
+{
+	"id": "extract-references",
+	"name": "Extract References",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Extract inline external links to the ## reference section of the active note",
+	"author": "siva",
+	"isDesktopOnly": false
+}
