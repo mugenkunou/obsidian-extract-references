@@ -14,6 +14,8 @@ jobs:
       attestations: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -37,6 +39,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           tag="${GITHUB_REF#refs/tags/}"
+          if [ -z "$tag" ]; then
+            echo "::error::Could not determine tag from GITHUB_REF=$GITHUB_REF"
+            exit 1
+          fi
 
           gh release create "$tag" \
             --title="$tag" \
